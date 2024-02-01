@@ -1,0 +1,10 @@
+[package]
+name = "generics"
+version = "0.0.1"
+published-at = "0xab619c63c6ad6d3e5cc94875913f85b6957bc77d8706b54a95f4f6fd5d72bd13"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/mainnet" }
+
+[addresses]
+generics = "0x0"
