@@ -5,6 +5,7 @@ module stomcoin::stomcoin{
     use sui::tx_context::{Self, TxContext};
 
     //coin's name
+    啊啊啊啊啊aaaa
     struct STOMCOIN has drop {}
 
     //init
