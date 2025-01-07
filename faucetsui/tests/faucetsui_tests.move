@@ -40,9 +40,9 @@ module faucetsui::faucetsui_tests{
         let studentaddress = vector[user];
 
         {
-            let gaspool = test_scenario::take_shared<Gaspool>(scenario);
+            let mut gaspool = test_scenario::take_shared<Gaspool>(scenario);
             let coin = sui::coin::mint_for_testing<SUI>(
-                10000000,
+                1000000000,
                 test_scenario::ctx(scenario)
             );
             faucetsui::addgas(
@@ -72,14 +72,16 @@ module faucetsui::faucetsui_tests{
 
         test_scenario::next_tx(scenario,user);
         {
-            let gaspool = test_scenario::take_shared<Gaspool>(scenario);
-            let hoHCourse = test_scenario::take_shared<HoHCourse>(scenario);
-            faucetsui::faucetgas{
+            let mut gaspool = test_scenario::take_shared<Gaspool>(scenario);
+            let mut hoHCourse = test_scenario::take_shared<HoHCourse>(scenario);
+            faucetsui::faucetgas(
                 githubid,
-                gaspool,
-                hoHCourse,
+                &mut gaspool,
+                &mut hoHCourse,
                 test_scenario::ctx(scenario)
-            };
+            );
+                
+
             test_scenario::return_shared(gaspool);
             test_scenario::return_shared(hoHCourse);
         };
